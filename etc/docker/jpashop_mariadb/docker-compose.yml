@@ -1,0 +1,10 @@
+version: "3"
+services:
+  fcs_services:
+    image:  jpashop_mariadb
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 3306:3306
+    restart: on-failure
+    container_name: jpashop_mariadb
