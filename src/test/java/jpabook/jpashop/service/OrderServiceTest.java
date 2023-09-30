@@ -48,7 +48,7 @@ class OrderServiceTest {
         Order getOrder = orderRepository.findOne(orderId);
 
         assertThat(getOrder.getStatus()).isEqualTo(OrderStatus.ORDER);
-        assertThat(getOrder.getOrderitems().size()).isEqualTo(1);
+        assertThat(getOrder.getOrderItems().size()).isEqualTo(1);
         assertThat(getOrder.getTotalPrice()).isEqualTo(10000* orderCount);
         System.out.println("test");
         assertThat(book.getStockQuantity()).describedAs("주문 수량만큼 재고가 줄어야함").isEqualTo(8);

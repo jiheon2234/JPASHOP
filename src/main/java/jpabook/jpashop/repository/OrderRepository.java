@@ -50,7 +50,7 @@ public class OrderRepository {
                 .from(order)
 //                .leftJoin(order.member,member)
 //                .where(eqMemberName(memberName), eqOrderStatus(status))
-                .where(eqOrderStatus(status))
+                .where(eqOrderStatus(status),eqMemberName(memberName))
                 .fetch();
   //
     }
