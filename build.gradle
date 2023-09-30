@@ -26,11 +26,31 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	testRuntimeOnly 'com.h2database:h2'
+
+
+	// Querydsl 추가
+	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation('com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0') // 로그 남기기
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+
+clean{
+	delete file('src/main/generated')
 }
