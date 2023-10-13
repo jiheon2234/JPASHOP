@@ -1,20 +1,44 @@
+#spring:
+#  datasource:
+#    driver-class-name: org.mariadb.jdbc.Driver
+#    url: jdbc:mariadb://localhost:3306/SPRINGJPA?serverTimezone=Asia/Seoul
+#    username: jiheon2234
+#    password: '0000'
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop #none
+#    properties:
+#      hibernate:
+##        show_sql: true
+#        format_sql: true
+#        default_batch_fetch_size: 100
+#logging:
+#  level:
+#    root: info
+#    org.hibernate.SQL : debug
+#    org.hibernate.type : trace
+##    p6spy: info
+##
+
 spring:
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/SPRINGJPA?serverTimezone=Asia/Seoul
-    username: jiheon2234
-    password: '0000'
+    url: jdbc:h2:tcp://localhost/~/test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
   jpa:
     hibernate:
-      ddl-auto: create #none
+      ddl-auto: create-drop
     properties:
       hibernate:
-        show_sql: true
+        #        show_sql: true
         format_sql: true
-logging:
-  level:
-    root: info
-    org.hibernate.SQL : debug
-    org.hibernate.type : trace
-    p6spy: info
+        default_batch_fetch_size: 1000 #최적화 옵션
+
+
+logging.level:
+  org.hibernate.SQL: debug
+  p6spy: debug
+
 

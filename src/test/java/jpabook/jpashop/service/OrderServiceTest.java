@@ -106,7 +106,7 @@ class OrderServiceTest {
         orderSearch.setOrderStatus(OrderStatus.ORDER);
         orderSearch.setMemberName("회원 1");
 
-        List<Order>  orderList = orderRepository.findAll(orderSearch);
+        List<Order>  orderList = orderRepository.findAllByString(orderSearch);
         System.out.println(orderList);
         System.out.println(orderList.get(0).getMember().getName());
 
